@@ -1,5 +1,6 @@
 package com.example.fragment_activity;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean status;
     private First_Fragment first;
     private Second_Fragment second;
+    private Button change;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         manager = getSupportFragmentManager();
         status = true;
 
-
+        change = findViewById(R.id.btnchange);
 
         loadfragment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
                     status = true;
                 }
 
+            }
+        });
+
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,TabActivity.class);
+                startActivity(i);
             }
         });
 
